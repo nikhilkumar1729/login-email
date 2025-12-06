@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f3f3f3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .container {
+            width: 320px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        h2 {
+            text-align: center;
+        }
+        
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        button {
+            width: 100%;
+            background: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background: #0056b3;
+        }
+        
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Login</h2>
+
+        <input type="email" id="email" placeholder="Enter Email">
+        <input type="password" id="password" placeholder="Enter Password">
+        <p class="error" id="errorMsg"></p>
+
+        <button onclick="validateForm()">Login</button>
+    </div>
+
+    <script>
+        function validateForm() {
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let errorMsg = document.getElementById("errorMsg");
+
+            if (!email.includes("@")) {
+                errorMsg.innerText = "Invalid Email";
+                return;
+            }
+            if (password.length < 4) {
+                errorMsg.innerText = "Password must be at least 4 characters";
+                return;
+            }
+
+            errorMsg.innerText = "";
+            alert("Login Successful!");
+        }
+    </script>
+
+</body>
+
+</html>
